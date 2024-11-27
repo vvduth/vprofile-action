@@ -26,16 +26,16 @@ jobs:
       - name: setup sonarQube
         uses: warchant/setup-sonar-scanner@v7
 
-      # - name: sonarQube scan  
-      #   run: sonar-scanner
-      #      -Dsonar.host.url=${{ secrets.SONAR_URL }}
-      #      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      #      -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-      #      -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-      #      -Dsonar.sources=src/
-      #      -Dsonar.junit.reportsPath=target/surefire-reports/ 
-      #      -Dsonar.jacoco.reportsPath=target/jacoco.exec 
-      #      -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
+      - name: sonarQube scan  
+        run: sonar-scanner
+           -Dsonar.host.url=${{ secrets.SONAR_URL }}
+           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+           -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+           -Dsonar.sources=src/
+           -Dsonar.junit.reportsPath=target/surefire-reports/ 
+           -Dsonar.jacoco.reportsPath=target/jacoco.exec 
+           -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
 
       - name: Sonar Qube quality gate check
         id: sonarqube-quality-gate-check
